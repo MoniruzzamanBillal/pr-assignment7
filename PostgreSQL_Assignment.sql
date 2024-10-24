@@ -92,6 +92,7 @@ VALUES (1, 1),
     (3, 2);
 
 -- ! Query 1:
+-- ! for inserting a new student
 INSERT INTO
     students (
         student_name,
@@ -112,6 +113,7 @@ VALUES (
 
 --
 -- ! Query 2
+-- ! for Retrieving the names of all students who are enrolled in the course titled 'Next.js'.
 
 SELECT stu.student_name
 from
@@ -122,6 +124,7 @@ where
     c.course_name = 'Next.js';
 --
 -- ! Query 3
+-- ! for Updating the status of the student with the highest total (frontend_mark + backend_mark) to 'Awarded'.
 
 UPDATE students
 set
@@ -136,6 +139,7 @@ where
 --
 
 -- ! Query 4
+-- ! for Deleting all courses that have no students enrolled.
 
 DELETE FROM courses
 WHERE
@@ -146,11 +150,12 @@ WHERE
     );
 --
 -- ! Query 5
+-- ! for Retrieving the names of students using a limit of 2, starting from the 3rd student.
 SELECT student_name from students OFFSET 2 LIMIT 2;
 --
 
 -- ! Query 6
-
+-- ! for Retrieving the course names and the number of students enrolled in each course.
 SELECT courses.course_name, count(enrollment.student_id) as students_enrolled
 from courses
     join enrollment on enrollment.course_id = courses.course_id
@@ -159,11 +164,12 @@ GROUP BY
 --
 
 -- ! Query 7
-
+-- ! Calculating and display the average age of all students.
 SELECT ROUND(avg(age), 2) as average_age from students;
 --
 
 -- ! Query 8
+-- ! for Retrieving the names of students whose email addresses contain 'example.com'.
 SELECT student_name FROM students WHERE email LIKE '%example.com%';
 
 --
