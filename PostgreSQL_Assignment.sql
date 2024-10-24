@@ -134,3 +134,14 @@ where
         LIMIT 1
     );
 --
+
+-- ! Query 4
+
+DELETE FROM courses
+WHERE
+    course_id NOT in (
+        SELECT DISTINCT
+            course_id
+        FROM enrollment
+    )
+    --
