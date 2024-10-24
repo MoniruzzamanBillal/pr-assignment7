@@ -157,3 +157,13 @@ from courses
 GROUP BY
     courses.course_name;
 --
+
+-- ! Query 7
+
+SELECT ROUND(avg(age), 2) as average_age from students;
+--
+
+-- ! Query 8
+SELECT student_name FROM students WHERE email LIKE '%example.com%';
+
+--
