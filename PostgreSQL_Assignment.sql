@@ -119,5 +119,18 @@ from
     join enrollment as enr on stu.student_id = enr.student_id
     join courses as c on c.course_id = enr.course_id
 where
-    c.course_name = 'Next.js'
-    --
+    c.course_name = 'Next.js';
+--
+-- ! Query 3
+
+UPDATE students
+set
+    status = 'Awarded'
+where
+    student_id = (
+        SELECT student_id
+        from students
+        ORDER BY (frontend_mark + backend_mark) DESC
+        LIMIT 1
+    );
+--
