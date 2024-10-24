@@ -148,3 +148,12 @@ WHERE
 -- ! Query 5
 SELECT student_name from students OFFSET 2 LIMIT 2;
 --
+
+-- ! Query 6
+
+SELECT courses.course_name, count(enrollment.student_id) as students_enrolled
+from courses
+    join enrollment on enrollment.course_id = courses.course_id
+GROUP BY
+    courses.course_name;
+--
