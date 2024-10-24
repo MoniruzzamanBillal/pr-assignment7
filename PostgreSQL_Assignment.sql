@@ -143,5 +143,8 @@ WHERE
         SELECT DISTINCT
             course_id
         FROM enrollment
-    )
-    --
+    );
+--
+-- ! Query 5
+SELECT student_name from students OFFSET 2 LIMIT 2;
+--
