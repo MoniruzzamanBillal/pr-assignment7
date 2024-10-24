@@ -109,3 +109,15 @@ VALUES (
         60,
         NULL
     );
+
+--
+-- ! Query 2
+
+SELECT stu.student_name
+from
+    students as stu
+    join enrollment as enr on stu.student_id = enr.student_id
+    join courses as c on c.course_id = enr.course_id
+where
+    c.course_name = 'Next.js'
+    --
